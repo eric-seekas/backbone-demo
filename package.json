@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/dsky1990/backbone-demo/issues"
   },
-  "homepage": "https://github.com/dsky1990/backbone-demo#readme"
+  "homepage": "https://github.com/dsky1990/backbone-demo#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
 }
