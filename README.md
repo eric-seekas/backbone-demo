@@ -1,2 +1,2 @@
 # backbone-demo
-backbone demo with backbone,pug,framework7,gulp,webpack
+backbone demo with backbone,underscore,pug,framework7,gulp,webpack
