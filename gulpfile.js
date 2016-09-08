@@ -10,11 +10,11 @@ var pug = require('gulp-pug'); // pug to html
 var purifycss = require('gulp-purifycss'); // Clean unnecessary CSS
 var changed = require('gulp-changed'); // changed file
 var postcss = require('gulp-postcss'); // postcss
-var sass = require('gulp-sass');//sass
-var autoPrefixer = require('gulp-autoprefixer');//css3前缀
-var sourcemaps = require('gulp-sourcemaps');//sourcemaps
-var htmlmin = require('gulp-htmlmin');//htmlmin
-var babel = require('gulp-babel');//babel
+var sass = require('gulp-sass');//scss to css
+var autoPrefixer = require('gulp-autoprefixer');//autoprefixer
+var sourcemaps = require('gulp-sourcemaps');//add sourcemaps
+var htmlmin = require('gulp-htmlmin');//purify html
+var babel = require('gulp-babel');//es6 to js
 // eslint
 // file path
 // develop
