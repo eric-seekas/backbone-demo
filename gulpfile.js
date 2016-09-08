@@ -15,3 +15,5 @@ var autoPrefixer = require('gulp-autoprefixer');//css3前缀
 var sourcemaps = require('gulp-sourcemaps');//sourcemaps
 // eslint
 // file path
+// build
+// dist 
