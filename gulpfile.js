@@ -13,7 +13,9 @@ var postcss = require('gulp-postcss'); // postcss
 var sass = require('gulp-sass');//sass
 var autoPrefixer = require('gulp-autoprefixer');//css3前缀
 var sourcemaps = require('gulp-sourcemaps');//sourcemaps
+var htmlmin = require('gulp-htmlmin');//htmlmin
+var babel = require('gulp-babel');//babel
 // eslint
 // file path
-// build
-// dist 
+// develop
+// official
