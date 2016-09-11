@@ -5,16 +5,17 @@
  */
 'use strict';
 // plugin
-var gulp = require('gulp');
-var pug = require('gulp-pug'); // pug to html
-var purifycss = require('gulp-purifycss'); // Clean unnecessary CSS
-var changed = require('gulp-changed'); // changed file
-var postcss = require('gulp-postcss'); // postcss
-var sass = require('gulp-sass');//scss to css
-var autoPrefixer = require('gulp-autoprefixer');//autoprefixer
-var sourcemaps = require('gulp-sourcemaps');//add sourcemaps
-var htmlmin = require('gulp-htmlmin');//purify html
-var babel = require('gulp-babel');//es6 to js
+const gulp = require('gulp');
+const pug = require('gulp-pug'); // pug to html
+const purifycss = require('gulp-purifycss'); // Clean unnecessary CSS
+const changed = require('gulp-changed'); // changed file
+const postcss = require('gulp-postcss'); // postcss
+const sass = require('gulp-sass');//scss to css
+const autoPrefixer = require('gulp-autoprefixer');//autoprefixer
+const sourcemaps = require('gulp-sourcemaps');//add sourcemaps
+const htmlmin = require('gulp-htmlmin');//purify html
+const babel = require('gulp-babel');//es6 to js
+const eslint = require('gulp-eslint'); // eslint
 // eslint
 // file path
 // develop
