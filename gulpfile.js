@@ -16,6 +16,7 @@ const sourcemaps = require('gulp-sourcemaps');//add sourcemaps
 const htmlmin = require('gulp-htmlmin');//purify html
 const babel = require('gulp-babel');//es6 to js
 const eslint = require('gulp-eslint'); // eslint
+const browserSync = require('browser-sync').create(); //browserSync
 // eslint
 // file path
 // develop
