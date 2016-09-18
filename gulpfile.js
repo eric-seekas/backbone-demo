@@ -10,14 +10,23 @@ const pug = require('gulp-pug'); // pug to html
 const purifycss = require('gulp-purifycss'); // Clean unnecessary CSS
 const changed = require('gulp-changed'); // changed file
 const postcss = require('gulp-postcss'); // postcss
-const sass = require('gulp-sass');//scss to css
-const autoPrefixer = require('gulp-autoprefixer');//autoprefixer
-const sourcemaps = require('gulp-sourcemaps');//add sourcemaps
-const htmlmin = require('gulp-htmlmin');//purify html
-const babel = require('gulp-babel');//es6 to js
+const sass = require('gulp-sass'); // scss to css
+const autoPrefixer = require('gulp-autoprefixer'); // autoprefixer
+const sourcemaps = require('gulp-sourcemaps'); // add sourcemaps
+const htmlmin = require('gulp-htmlmin'); // purify html
+const babel = require('gulp-babel'); // es6 to js
 const eslint = require('gulp-eslint'); // eslint
-const browserSync = require('browser-sync').create(); //browserSync
+const browserSync = require('browser-sync').create(); // browserSync
 // eslint
 // file path
+const buildPug = 'build/pug/*.pug';
+
+//task
+//pug to html
+gulp.task('pug-to-html', function () {
+  return gulp.src(buildPug)
+      .pipe(pug())
+      .pipe(gulp.dest());
+});
 // develop
 // official
