@@ -3,7 +3,7 @@
  * gulp task to make development quickly
  * css sprite, imagemin, sass lint && sass to css, css minify, js minify
  */
-'use strict';
+
 // plugin
 const gulp = require('gulp');
 const pug = require('gulp-pug'); // pug to html
@@ -20,13 +20,9 @@ const browserSync = require('browser-sync').create(); // browserSync
 // eslint
 // file path
 const buildPug = 'build/pug/*.pug';
-
-//task
-//pug to html
-gulp.task('pug-to-html', function () {
-  return gulp.src(buildPug)
-      .pipe(pug())
-      .pipe(gulp.dest());
-});
+const build = 'build/';
+// task
+// pug to html
+gulp.task('pug-to-html', () => gulp.src(buildPug).pipe(pug()).pipe(gulp.dest(build)));
 // develop
 // official
