@@ -1,3 +1,4 @@
+// remove linebreak-style in style.js in eslint-config-airbnb-base/rules
 {
   "extends": "airbnb-base",
   "rules": {

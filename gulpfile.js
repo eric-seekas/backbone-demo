@@ -1,7 +1,7 @@
 /**
  * Created by dsky on 9/8/16.
  * gulp task to make development quickly
- * css sprite, imagemin, sass lint && sass to css, css minify, js minify
+ * css sprite, imagemin, sass lint && sass to css, pug to html, css、js、html minify
  */
 
 // plugin
