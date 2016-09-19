@@ -36,6 +36,9 @@
     "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
-    "mocha": "^3.0.2"
+    "gulp-strip-debug": "^1.1.0",
+    "gulp-uglify": "^2.0.0",
+    "mocha": "^3.0.2",
+    "pump": "^1.0.1"
   }
 }
