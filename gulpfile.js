@@ -28,13 +28,14 @@ const build = 'build/';
 const buildHtml = 'build/*.html';
 const dir = './';
 const dirHtml = './*.html';
+
 // task
 // pug to html
 gulp.task('pug-to-html', () => gulp.src(buildPug).pipe(pug({ pretty: true, self: true })).pipe(gulp.dest(build)));
 // htmlmin
 gulp.task('htmlmin', () => gulp.src(buildHtml).pipe(changed(buildHtml)).pipe(htmlmin({ collapseWhitespace: true })).pipe(gulp.dest(dir)));
 // replace
-gulp.task('replace', () => gulp.src(dirHtml).pipe(changed(dirHtml)).pipe(replace('css/style.css', 'dist/css/style.css')));
+gulp.task('replace', () => gulp.src(dirHtml).pipe(replace('css/style.css', 'dist/css/style.css').pipe(gulp.dest(dir))));
 
 // develop
 gulp.task('pug-watch', () => gulp.watch((buildPug, buildPugTpl), ['pug-to-html']));
