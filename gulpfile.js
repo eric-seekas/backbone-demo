@@ -23,7 +23,7 @@ const buildPug = 'build/pug/*.pug';
 const build = 'build/';
 // task
 // pug to html
-gulp.task('pug-to-html', () => gulp.src(buildPug).pipe(changed(buildPug)).pipe(pug({pretty:true})).pipe(gulp.dest(build)));
+gulp.task('pug-to-html', () => gulp.src(buildPug).pipe(changed(buildPug)).pipe(pug({ pretty: true, self: true})).pipe(gulp.dest(build)));
 // develop
 gulp.task('pug-watch', () => gulp.watch(buildPug, ['pug-to-html']));
 // official
