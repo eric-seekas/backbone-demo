@@ -47,7 +47,7 @@ gulp.task('pug-to-html', () => gulp.src(buildPug).pipe(pug({ pretty: true, self:
 // htmlmin
 gulp.task('htmlmin', () => gulp.src(buildHtml).pipe(changed(buildHtml)).pipe(htmlmin({ collapseWhitespace: true })).pipe(gulp.dest(dir)));
 // replace
-gulp.task('replace', () => gulp.src(dirHtml).pipe(replace('css/style.css', 'dist/css/style.css').pipe(gulp.dest(dir))));
+gulp.task('replace', () => gulp.src(dirHtml).pipe(replace('css/style.css','dist/css/style.css')).pipe(gulp.dest(dir)));
 // purifycss
 gulp.task('purifycss', () => gulp.src(vendorCss).pipe(purifycss([dirHtml, distJs]).pipe(gulp.dest('dist/css/style.min.css'))));
 
