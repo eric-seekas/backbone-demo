@@ -42,7 +42,7 @@ gulp.task('eslint', () => gulp.src(buildJs).pipe(changed(buildJs)).pipe(stripDeb
     .pipe(eslint.format())
     .pipe(eslint.failAfterError()));
 // es6 to js
-gulp.task('es6', () => gulp.src(buildEs6).pipe(babel()).pipe(gulp.dest(buildJsSrc)));
+gulp.task('es6', ['eslint'], () => gulp.src(buildEs6).pipe(babel()).pipe(gulp.dest(buildJsSrc)));
 // js minify
 gulp.task('jscompress', () => pump([gulp.src(buildJs), stripDebug(), uglify(), gulp.dest(distJsSrc)]));
 // pug to html
