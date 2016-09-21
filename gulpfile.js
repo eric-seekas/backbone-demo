@@ -23,10 +23,12 @@ const pump = require('pump');
 const uglify = require('gulp-uglify');// uglify js
 
 // file path
+const build = 'build/';
 const buildPug = 'build/pug/*.pug';
 const buildPugTpl = 'build/pug/pug-tpl/*.pug';
-const build = 'build/';
 const buildHtml = 'build/*.html';
+const buildEs6 = 'build/es6/*.es6';
+const buildJsSrc = 'build/js';
 const buildJs = 'build/js/*.js';
 const vendorCss = 'vendor/Framework7/dist/css/*.css';
 const distJs = 'dist/js/*.js';
@@ -40,6 +42,7 @@ gulp.task('eslint', () => gulp.src(buildJs).pipe(changed(buildJs)).pipe(stripDeb
     .pipe(eslint.format())
     .pipe(eslint.failAfterError()));
 // es6 to js
+gulp.task('es6', () => gulp.src(buildEs6).pipe(babel()).pipe(gulp.dest(buildJsSrc)));
 // js minify
 gulp.task('jscompress', () => pump([gulp.src(buildJs), stripDebug(), uglify(), gulp.dest(distJsSrc)]));
 // pug to html
@@ -50,11 +53,19 @@ gulp.task('htmlmin', () => gulp.src(buildHtml).pipe(changed(buildHtml)).pipe(htm
 gulp.task('replace', () => gulp.src(dirHtml).pipe(replace('css/style.css', 'dist/css/style.css')).pipe(gulp.dest(dir)));
 // purifycss
 gulp.task('purifycss', () => gulp.src(vendorCss).pipe(purifycss([dirHtml, distJs]).pipe(gulp.dest('dist/css/style.min.css'))));
+// browser-sync
+gulp.task('browser-sync', () => browserSync.init({ server: { baseDir: '/' } }));
 
 // watch
+// pug
 gulp.task('pug-watch', () => gulp.watch((buildPug, buildPugTpl), ['pug-to-html']));
+// es6
+gulp.task('es6-watch', () => gulp.watch((buildEs6), ['es6']));
+// reload
+gulp.task('reload', () => gulp.watch(build, buildJs).on('change', browserSync.reload));
 
 // develop
-gulp.task('watch', ['pug-watch']);
+gulp.task('watch', ['pug-watch', 'es6-watch', 'browser-sync', 'reload']);
+
 // release
-gulp.task('release', ['htmlmin', 'replace']);
+gulp.task('release', ['htmlmin', 'jscompress', 'replace']);
