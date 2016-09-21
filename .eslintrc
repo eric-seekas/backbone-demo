@@ -8,6 +8,7 @@
     }],
     "prefer-arrow-callback": ["error",{
       "allowNamedFunctions": true
-    }]
+    }],
+    "comma-dangle": ["error", "never"]
   }
 }
