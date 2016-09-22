@@ -42,34 +42,53 @@ const dirHtml = './*.html';
 
 // task
 // eslint
-gulp.task('eslint', () => gulp.src(buildJs).pipe(changed(buildJs)).pipe(stripDebug()).pipe(eslint())
+gulp.task('eslint', () => gulp.src(buildJs)
+    .pipe(changed(buildJs))
+    .pipe(stripDebug())
+    .pipe(eslint())
     .pipe(eslint.format())
-    .pipe(eslint.failAfterError()));
+    .pipe(eslint.failAfterError())
+);
 // es6 to js
-gulp.task('es6', ['eslint'], () => gulp.src(buildEs6).pipe(changed(buildEs6)).pipe(babel())
-    .pipe(gulp.dest(buildJsSrc)));
+gulp.task('es6', ['eslint'], () => gulp.src(buildEs6)
+    .pipe(changed(buildEs6))
+    .pipe(babel())
+    .pipe(gulp.dest(buildJsSrc))
+);
 // js minify
 gulp.task('jscompress', () => pump([gulp.src(buildJs), stripDebug(), uglify(), gulp.dest(distJsSrc)]));
 // pug to html
-gulp.task('pug-to-html', () => gulp.src(buildPug).pipe(pug({ pretty: true, self: true }))
-    .pipe(gulp.dest(build)));
+gulp.task('pug-to-html', () => gulp.src(buildPug)
+    .pipe(pug({ pretty: true, self: true }))
+    .pipe(gulp.dest(build))
+);
 // htmlmin
 gulp.task('htmlmin', () => gulp.src(buildHtml).pipe(changed(buildHtml))
-    .pipe(htmlmin({ collapseWhitespace: true })).pipe(gulp.dest(dir)));
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(gulp.dest(dir))
+);
 // scss to css
-gulp.task('sass-to-css', () => gulp.src(buildSass).pipe(changed(buildSass)).pipe(sourcemaps.init())
+gulp.task('sass-to-css', () => gulp.src(buildSass)
+    .pipe(changed(buildSass))
+    .pipe(sourcemaps.init())
     .pipe(sass().on('error', e => console.log(e.message)))
     .pipe(autoPrefixer({
       browsers: ['last 99 versions'],
       cascade: false
     }))
     .pipe(sourcemaps.write('../../dist/css/maps'))
-    .pipe(gulp.dest(buildCssSrc)));
+    .pipe(gulp.dest(buildCssSrc))
+);
 // purifycss
-gulp.task('purifycss', () => gulp.src(vendorCss).pipe(purifycss([dirHtml, distJs]).pipe(gulp.dest('dist/css/style.min.css'))));
+gulp.task('purifycss', () => gulp.src(vendorCss)
+    .pipe(purifycss([dirHtml, distJs])
+    .pipe(gulp.dest('dist/css/style.min.css')))
+);
 // replace
-gulp.task('replace', () => gulp.src(dirHtml).pipe(replace('css/style.css', 'dist/css/style.css'))
-    .pipe(gulp.dest(dir)));
+gulp.task('replace', () => gulp.src(dirHtml)
+    .pipe(replace('css/style.css', 'dist/css/style.css'))
+    .pipe(gulp.dest(dir))
+);
 // browser-sync
 gulp.task('browser-sync', () => browserSync.init({ server: { baseDir: '/' } }));
 
