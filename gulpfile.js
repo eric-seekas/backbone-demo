@@ -98,7 +98,7 @@ gulp.task('pug-watch', () => gulp.watch((buildPug, buildPugTpl), ['pug-to-html']
 // es6
 gulp.task('es6-watch', () => gulp.watch((buildEs6), ['es6']));
 // sass
-gulp.task('sass-watch', () => gulp.watch(buildSass), ['sass-to-css']);
+gulp.task('sass-watch', () => gulp.watch(buildSass, ['sass-to-css']));
 // reload
 gulp.task('reload', () => gulp.watch(build, buildJs, buildCss).on('change', browserSync.reload));
 
