@@ -12,7 +12,6 @@ const changed = require('gulp-changed'); // changed file
 const postcss = require('gulp-postcss'); // postcss
 const sass = require('gulp-sass'); // scss to css
 const autoPrefixer = require('gulp-autoprefixer'); // autoprefixer
-const sourceMaps = require('gulp-sourcemaps');//sourcemaps
 const sourcemaps = require('gulp-sourcemaps'); // add sourcemaps
 const htmlmin = require('gulp-htmlmin'); // purify html
 const babel = require('gulp-babel'); // es6 to js
@@ -99,7 +98,7 @@ gulp.task('pug-watch', () => gulp.watch((buildPug, buildPugTpl), ['pug-to-html']
 // es6
 gulp.task('es6-watch', () => gulp.watch((buildEs6), ['es6']));
 // sass
-// gulp.task('sass-watch', () => gulp.watch(buildSass), ['sass-to-css']);
+gulp.task('sass-watch', () => gulp.watch(buildSass), ['sass-to-css']);
 // reload
 gulp.task('reload', () => gulp.watch(build, buildJs, buildCss).on('change', browserSync.reload));
 
