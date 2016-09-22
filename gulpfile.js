@@ -42,8 +42,8 @@ const dirHtml = './*.html';
 
 // task
 // eslint
-gulp.task('eslint', () => gulp.src(buildJs)
-    .pipe(changed(buildJs))
+gulp.task('eslint', () => gulp.src(buildEs6)
+    .pipe(changed(buildEs6))
     .pipe(stripDebug())
     .pipe(eslint())
     .pipe(eslint.format())
@@ -56,14 +56,15 @@ gulp.task('es6', ['eslint'], () => gulp.src(buildEs6)
     .pipe(gulp.dest(buildJsSrc))
 );
 // js minify
-gulp.task('jscompress', () => pump([gulp.src(buildJs), stripDebug(), uglify(), gulp.dest(distJsSrc)]));
+gulp.task('jscompress', () => pump([gulp.src(buildJs), changed(buildJs), stripDebug(), uglify(), gulp.dest(distJsSrc)]));
 // pug to html
 gulp.task('pug-to-html', () => gulp.src(buildPug)
     .pipe(pug({ pretty: true, self: true }))
     .pipe(gulp.dest(build))
 );
 // htmlmin
-gulp.task('htmlmin', () => gulp.src(buildHtml).pipe(changed(buildHtml))
+gulp.task('htmlmin', () => gulp.src(buildHtml)
+    .pipe(changed(buildHtml))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest(dir))
 );
