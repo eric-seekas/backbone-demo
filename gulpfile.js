@@ -41,66 +41,84 @@ const dirHtml = './*.html';
 
 // task
 // eslint
-gulp.task('eslint', () => gulp.src(buildEs6)
-    .pipe(changed(buildEs6))
-    .pipe(stripDebug())
-    .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError())
-);
+gulp.task('eslint', function () {
+  gulp.src(buildEs6)
+      .pipe(changed(buildEs6))
+      .pipe(stripDebug())
+      .pipe(eslint())
+      .pipe(eslint.format())
+      .pipe(eslint.failAfterError());
+});
 // es6 to js
-gulp.task('es6', ['eslint'], () => gulp.src(buildEs6)
-    .pipe(changed(buildEs6))
-    .pipe(babel())
-    .pipe(gulp.dest(buildJsSrc))
-);
+gulp.task('es6', ['eslint'], function () {
+  gulp.src(buildEs6)
+      .pipe(changed(buildEs6))
+      .pipe(babel())
+      .pipe(gulp.dest(buildJsSrc));
+});
 // js minify
-gulp.task('jscompress', () => pump([gulp.src(buildJs), changed(buildJs), stripDebug(), uglify(), gulp.dest(distJsSrc)]));
+gulp.task('jscompress', function () {
+  pump([gulp.src(buildJs), changed(buildJs), stripDebug(), uglify(), gulp.dest(distJsSrc)]);
+});
 // pug to html
-gulp.task('pug-to-html', () => gulp.src(buildPug)
-    .pipe(pug({ pretty: true, self: true }))
-    .pipe(gulp.dest(build))
-);
+gulp.task('pug-to-html', function () {
+  gulp.src(buildPug)
+      .pipe(pug({ pretty: true, self: true }))
+      .pipe(gulp.dest(build));
+});
 // htmlmin
-gulp.task('htmlmin', () => gulp.src(buildHtml)
-    .pipe(changed(buildHtml))
-    .pipe(htmlmin({ collapseWhitespace: true }))
-    .pipe(gulp.dest(dir))
-);
+gulp.task('htmlmin', function () {
+  gulp.src(buildHtml)
+      .pipe(changed(buildHtml))
+      .pipe(htmlmin({ collapseWhitespace: true }))
+      .pipe(gulp.dest(dir));
+});
 // scss to css
-gulp.task('sass-to-css', () => gulp.src(buildSass)
-    .pipe(changed(buildSass))
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', e => console.log(e.message)))
-    .pipe(autoPrefixer({
-      browsers: ['last 99 versions'],
-      cascade: false
-    }))
-    .pipe(sourcemaps.write('../../dist/css/maps'))
-    .pipe(gulp.dest(buildCssSrc))
-);
+gulp.task('sass-to-css', function () {
+  gulp.src(buildSass)
+      .pipe(changed(buildSass))
+      .pipe(sourcemaps.init())
+      .pipe(sass().on('error', e => console.log(e.message)))
+      .pipe(autoPrefixer({
+        browsers: ['last 99 versions'],
+        cascade: false
+      }))
+      .pipe(sourcemaps.write('../../dist/css/maps'))
+      .pipe(gulp.dest(buildCssSrc));
+});
 // purifycss
-gulp.task('purifycss', () => gulp.src(vendorCss)
-    .pipe(purifycss([dirHtml, distJs])
-    .pipe(gulp.dest('dist/css/style.min.css')))
-);
+gulp.task('purifycss', function () {
+  gulp.src(vendorCss)
+      .pipe(purifycss([dirHtml, distJs])
+          .pipe(gulp.dest('dist/css/style.min.css')));
+});
 // replace
-gulp.task('replace', () => gulp.src(dirHtml)
-    .pipe(replace('css/style.css', 'dist/css/style.min.css'))
-    .pipe(gulp.dest(dir))
-);
+gulp.task('replace', function () {
+  gulp.src(dirHtml)
+      .pipe(replace('css/style.css', 'dist/css/style.min.css'))
+      .pipe(gulp.dest(dir));
+});
 // browser-sync
-gulp.task('browser-sync', () => browserSync.init({ server: { baseDir: '/' } }));
-
+gulp.task('browser-sync', function () {
+  browserSync.init({ server: { baseDir: '/' } });
+});
 // watch
 // pug
-gulp.task('pug-watch', () => gulp.watch((buildPug, buildPugTpl), ['pug-to-html']));
+gulp.task('pug-watch', function () {
+  gulp.watch((buildPug, buildPugTpl), ['pug-to-html']);
+});
 // es6
-gulp.task('es6-watch', () => gulp.watch((buildEs6), ['es6']));
+gulp.task('es6-watch', function () {
+  gulp.watch((buildEs6), ['es6']);
+});
 // sass
-gulp.task('sass-watch', () => gulp.watch(buildSass, ['sass-to-css']));
+gulp.task('sass-watch', function () {
+  gulp.watch(buildSass, ['sass-to-css']);
+});
 // reload
-gulp.task('reload', () => gulp.watch(build, buildJs, buildCss).on('change', browserSync.reload));
+gulp.task('reload', function () {
+  gulp.watch(build, buildJs, buildCss).on('change', browserSync.reload);
+});
 
 // develop
 gulp.task('watch', ['pug-watch', 'es6-watch', 'sass-watch', 'browser-sync', 'reload']);
