@@ -94,7 +94,7 @@ gulp.task('browser-sync', () => browserSync.init({ server: { baseDir: '/' } }));
 
 // watch
 // pug
-gulp.task('pug-watch', () => gulp.watch((buildPug, buildPugTpl), ['pug-to-html']));
+gulp.task('pug-watch', () => gulp.watch([buildPug, buildPugTpl], ['pug-to-html']));
 // es6
 gulp.task('es6-watch', () => gulp.watch((buildEs6), ['es6']));
 // sass
