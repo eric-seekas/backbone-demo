@@ -1,11 +1,13 @@
 // remove linebreak-style in style.js in node_modules\eslint-config-airbnb-base/rules
-// remove prefer-arrow-callback in es6.js in node_modules\eslint-config-airbnb-base/rules
 {
   "extends": "airbnb-base",
   "rules": {
     "import/no-extraneous-dependencies": ["error", {
       "devDependencies": true,
       "optionalDependencies": true
+    }],
+    "prefer-arrow-callback": ["error",{
+      "allowNamedFunctions": true
     }],
     "comma-dangle": ["error", "never"]
   }
