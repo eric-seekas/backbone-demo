@@ -90,7 +90,7 @@ gulp.task('replace', () => gulp.src(dirHtml)
     .pipe(gulp.dest(dir))
 );
 // browser-sync
-gulp.task('browser-sync', () => browserSync.init({ server: { baseDir: '/' } }));
+gulp.task('browser-sync', () => browserSync.init({ server: { baseDir: './' } }));
 
 // watch
 // pug
@@ -100,7 +100,7 @@ gulp.task('es6-watch', () => gulp.watch((buildEs6), ['es6']));
 // sass
 gulp.task('sass-watch', () => gulp.watch(buildSass, ['sass-to-css']));
 // reload
-gulp.task('reload', () => gulp.watch(build, buildJs, buildCss).on('change', browserSync.reload));
+gulp.task('reload', () => gulp.watch([buildHtml, buildJs, buildCss]).on('change', browserSync.reload));
 
 // develop
 gulp.task('watch', ['pug-watch', 'es6-watch', 'sass-watch', 'browser-sync', 'reload']);
