@@ -9,6 +9,15 @@
     "prefer-arrow-callback": ["error",{
       "allowNamedFunctions": true
     }],
-    "comma-dangle": ["error", "never"]
+    "comma-dangle": ["error", "never"],
+    "new-cap": ["error",{
+      "properties": false
+    }],
+    "quote-props": ["error", "as-needed", { "keywords": true, "unnecessary": false }]
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jquery": true
   }
 }
