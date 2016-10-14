@@ -1,20 +1,19 @@
 //- index.pug
 
-doctype html
-html
-    include pug-tpl/head.pug
-    body
-        div.views
-            div.view
-                div.pages.navbar-fixed.navbar-through
-                    div.page
-                        div.navbar
-                            div.navbar-inner
-                                div.left
-                                div.center test
-                                div.right
-                        div.page-content
-                        div.toolbar
-                            div.toolbar-inner
-        include pug-tpl/foot.pug
-        include pug-tpl/js.pug
+extends ./pug-tpl/layout
+
+block title
+    title 登录
+block content
+    div.views
+        div.view
+            div.pages.navbar-fixed.navbar-through
+                div.page
+                    div.navbar
+                        div.navbar-inner
+                            div.left
+                            div.center test
+                            div.right
+                    div.page-content
+                    div.toolbar
+                        div.toolbar-inner

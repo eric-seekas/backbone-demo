@@ -1,0 +1,24 @@
+//- index.pug
+
+-var iosUrl = '../vendor/Framework7/css/framework7.ios.custom.css';
+-var materialUrl = '../vendor/Framework7/css/framework7.material.css';
+-var backboneUrl = '../vendor/backbone/backbone.js';
+-var underscoreUrl = '../vendor/underscore/underscore.js';
+-var Framework7Url = '../vendor/Framework7/js/framework7.custom.js';
+
+doctype html
+html
+    head
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        link(rel='stylesheet', href=iosUrl)
+        //link(rel='stylesheet', href=materialUrl)
+        block title
+            title Default title
+    body
+        block content
+            p Default content
+        script(src=underscoreUrl)
+        script(src=backboneUrl)
+        script(src=Framework7Url)
