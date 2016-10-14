@@ -2,6 +2,9 @@
 
 extends ./pug-tpl/layout
 
+
+block append link
+    link(rel='stylesheet', href='./css/icon.css')
 block title
     title 登录
 block content
@@ -12,12 +15,12 @@ block content
                     div.page-content
                     div.toolbar.tabbar.tabbar-labels
                         div.toolbar-inner
-                            a.tab-link
-                                i.icon
-                                span.tabbar-label  主页1
-                            a.tab-link
-                                i.icon
-                                span.tabbar-label Label 2
-                            a.tab-link
-                                i.icon
-                                span.tabbar-label Label 3
+                            a.tab-link(href='#')
+                                i.icon.home
+                                span.tabbar-label 主页
+                            a.tab-link(href='#')
+                                i.icon.heart
+                                span.tabbar-label 服务
+                            a.tab-link(href='#')
+                                i.icon.avatar
+                                span.tabbar-label 我
