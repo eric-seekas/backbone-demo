@@ -1,0 +1,1 @@
+{"version":3,"sources":["icon.scss"],"names":[],"mappings":"AAAA;EAEI,qDAAoD,EACrD;;AAEH;EAEI,qDAAoD,EACrD","file":"icon.css","sourcesContent":[".icon{\r\n  &.home{\r\n    background: url(\"../images/svg/house.svg\") no-repeat;\r\n  }\r\n}\r\n.icon{\r\n  &.home2{\r\n    background: url(\"../images/svg/house.svg\") no-repeat;\r\n  }\r\n}"],"sourceRoot":"/source/"}
