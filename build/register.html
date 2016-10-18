@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../vendor/Framework7/css/framework7.ios.colors.css">
     <link rel="stylesheet" href="../dist/css/style.css">
     <!--link(rel='stylesheet', href=materialUrl)-->
-    <title>登录</title>
+    <title>注册</title>
   </head>
   <body>
     <div class="views">
@@ -22,25 +22,35 @@
                     <li class="item-content">
                       <div class="item-inner">
                         <div class="item-input">
-                          <input type="text" name="username" placeholder="用户名">
+                          <input type="text" name="telphone" placeholder="手机号">
                         </div>
                       </div>
                     </li>
                     <li class="item-content">
                       <div class="item-inner">
                         <div class="item-input">
-                          <input type="password" name="password" placeholder="密码">
+                          <input type="text" name="code" placeholder="请输入手机验证码">
+                        </div>
+                      </div>
+                      <div class="item-media">
+                        <button class="button button-fill" type="button">获取验证码</button>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-input">
+                          <input type="password" name="password" placeholder="密码：请输入6-12位字母与数字的组合">
+                        </div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-input">
+                          <input type="password" name="password" placeholder="请再次输入密码">
                         </div>
                       </div>
                     </li>
                   </ul>
-                </div>
-                <div class="content-block"><a class="button button-big button-fill" type="button">登录</a></div>
-                <div class="content-block">
-                  <div class="row">
-                    <div class="col-40"><a class="button button-fill color-green" type="button">快速注册</a></div>
-                    <div class="col-40"><a class="button button-fill color-red" type="button">忘记密码</a></div>
-                  </div>
                 </div>
               </form>
             </div>

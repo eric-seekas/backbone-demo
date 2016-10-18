@@ -9,6 +9,8 @@ const gulp = require('gulp');
 const pug = require('gulp-pug'); // pug to html
 const purifycss = require('gulp-purifycss'); // Clean unnecessary CSS
 const changed = require('gulp-changed'); // changed file
+const cleanCSS = require('gulp-clean-css'); // minify css
+const concat = require('gulp-concat'); // concat file
 const postcss = require('gulp-postcss'); // postcss
 const sass = require('gulp-sass'); // scss to css
 const autoPrefixer = require('gulp-autoprefixer'); // autoprefixer
@@ -36,6 +38,7 @@ const buildCssSrc = 'build/css';
 const vendorCss = 'vendor/Framework7/dist/css/*.css';
 const distJs = 'dist/js/*.js';
 const distJsSrc = 'dist/js';
+const distCssSrc = 'dist/css';
 const dir = './';
 const dirHtml = './*.html';
 
@@ -94,17 +97,27 @@ gulp.task('browser-sync', function browser() {
   browserSync.init({ server: { baseDir: './' } });
   gulp.watch([buildHtml, buildJs, buildCss]).on('change', browserSync.reload);
 });
+// css minify
+gulp.task('minify-css', function minify() {
+  return gulp.src(buildCss)
+      .pipe(changed(buildCss))
+      .pipe(cleanCSS({ compatibility: 'ie8' }))
+      .pipe(concat('style.css'))
+      .pipe(gulp.dest(distCssSrc));
+});
 
 // watch
 // pug
 gulp.task('pug-watch', () => gulp.watch([buildPug, buildPugTpl], ['pug-to-html']));
 // es6
-gulp.task('es6-watch', () => gulp.watch((buildEs6), ['es6']));
+gulp.task('es6-watch', () => gulp.watch(buildEs6, ['es6']));
 // sass
 gulp.task('sass-watch', () => gulp.watch(buildSass, ['sass-to-css']));
+// css
+gulp.task('css-watch', () => gulp.watch(buildCss, ['minify-css']));
 
 // develop
-gulp.task('watch', ['pug-watch', 'es6-watch', 'sass-watch', 'browser-sync']);
+gulp.task('watch', ['pug-watch', 'es6-watch', 'sass-watch', 'css-watch', 'browser-sync']);
 
 // release
 gulp.task('release', ['htmlmin', 'jscompress', 'replace']);

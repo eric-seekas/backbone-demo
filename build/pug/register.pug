@@ -1,9 +1,9 @@
-//- login.pug
+//- register.pug
 
 extends ./pug-tpl/layout
 
 block title
-    title 登录
+    title 注册
 block content
     div.views
         div.view
@@ -18,9 +18,27 @@ block content
                                         div.item-inner
                                             div.item-input
                                                 input(
-                                                    type='text'
-                                                    name='username'
-                                                    placeholder = '用户名'
+                                                type='text'
+                                                name='telphone'
+                                                placeholder = '手机号'
+                                                )
+                                    li.item-content
+                                        div.item-inner
+                                            div.item-input
+                                                input(
+                                                type='text'
+                                                name='code'
+                                                placeholder = '请输入手机验证码'
+                                                )
+                                        div.item-media
+                                            button.button.button-fill(type='button') 获取验证码
+                                    li.item-content
+                                        div.item-inner
+                                            div.item-input
+                                                input(
+                                                type='password'
+                                                name='password'
+                                                placeholder = '密码：请输入6-12位字母与数字的组合'
                                                 )
                                     li.item-content
                                         div.item-inner
@@ -28,16 +46,8 @@ block content
                                                 input(
                                                 type='password'
                                                 name='password'
-                                                placeholder = '密码'
+                                                placeholder = '请再次输入密码'
                                                 )
-                            div.content-block
-                                a.button.button-big.button-fill(type='button') 登录
-                            div.content-block
-                                div.row
-                                    div.col-40
-                                        a.button.button-fill.color-green(type='button') 快速注册
-                                    div.col-40
-                                        a.button.button-fill.color-red(type='button') 忘记密码
                     div.toolbar.tabbar.tabbar-labels
                         div.toolbar-inner
                             a.tab-link(href='#')
