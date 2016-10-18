@@ -1,7 +1,9 @@
 //- index.pug
 
--var iosUrl = '../vendor/Framework7/css/framework7.ios.custom.css';
+-var iosUrl = '../vendor/Framework7/css/framework7.ios.css';
+-var iosUrlColor = '../vendor/Framework7/css/framework7.ios.colors.css';
 -var materialUrl = '../vendor/Framework7/css/framework7.material.css';
+-var materialColorUrl = '../vendor/Framework7/css/framework7.material.colors.css';
 -var backboneUrl = '../vendor/backbone/backbone.js';
 -var underscoreUrl = '../vendor/underscore/underscore.js';
 -var Framework7Url = '../vendor/Framework7/js/framework7.custom.js';
@@ -14,6 +16,7 @@ html
         <meta name="apple-mobile-web-app-capable" content="yes">
         block link
             link(rel='stylesheet', href=iosUrl)
+            link(rel='stylesheet', href=iosUrlColor)
         //link(rel='stylesheet', href=materialUrl)
         block title
             title Default title
