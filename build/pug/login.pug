@@ -10,9 +10,37 @@ block title
 block content
     div.views
         div.view
-            div.pages.navbar-fixed.navbar-through
+            div.pages
                 div.page
-                    div.page-content
+                    div.page-content.login-screen-content
+                        div.login-screen-title 路金宝
+                        form
+                            div.list-block
+                                ul
+                                    li.item-content
+                                        div.item-inner
+                                            div.item-input
+                                                input(
+                                                    type='text'
+                                                    name='username'
+                                                    placeholder = '用户名'
+                                                )
+                                    li.item-content
+                                        div.item-inner
+                                            div.item-input
+                                                input(
+                                                type='password'
+                                                name='password'
+                                                placeholder = '密码'
+                                                )
+                            div.content-block
+                                a.button.button-big.button-fill.color-green(type='button') 登录
+                            div.content-block
+                                div.row
+                                    div.col-50
+                                        a.button.button-fill.color-green(type='button') 快速注册
+                                    div.col-50
+                                        a.button.button-fill.color-green(type='button') 忘记密码
                     div.toolbar.tabbar.tabbar-labels
                         div.toolbar-inner
                             a.tab-link(href='#')
