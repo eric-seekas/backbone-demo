@@ -1,1 +1,1 @@
-{"version":3,"sources":["default.scss"],"names":[],"mappings":"AAAA;EACE,uBAAuB,EACxB","file":"../../../build/sass/default.css","sourcesContent":[".page{\r\n  background-color: #fff;\r\n}"]}
+{"version":3,"sources":["default.scss"],"names":[],"mappings":"AAAA;EACE,uBAAuB,EACxB;;AACD;EACE,kBAAkB,EACnB;;AACD;EACE,kBAAkB,EACnB","file":"../../../build/sass/default.css","sourcesContent":[".page{\r\n  background-color: #fff;\r\n}\r\n.pad_t--20{\r\n  padding-top: 20px;\r\n}\r\n.pad_t--35{\r\n  padding-top: 32px;\r\n}"]}
