@@ -1,7 +1,63 @@
-//- register.pug
+//- find.pug
 
 extends ./pug-tpl/layout
 
 block title
     title 找回密码
 block content
+    div.views
+        div.view
+            div.pages
+                div.page
+                    div.page-content
+                        div.login-screen-title.pad_t--35 路金宝
+                        form
+                            div.list-block
+                                ul
+                                    li.item-content
+                                        div.item-inner
+                                            div.item-input
+                                                input(
+                                                type='text'
+                                                name='telphone'
+                                                placeholder = '手机号'
+                                                )
+                                    li.item-content
+                                        div.item-inner
+                                            div.item-input
+                                                input(
+                                                type='text'
+                                                name='code'
+                                                placeholder = '请输入手机验证码'
+                                                )
+                                        div.item-media
+                                            button.button.button-fill(type='button') 获取验证码
+                                    li.item-content
+                                        div.item-inner
+                                            div.item-input
+                                                input(
+                                                type='password'
+                                                name='password'
+                                                placeholder = '密码：请输入6-12位字母与数字的组合'
+                                                )
+                                    li.item-content
+                                        div.item-inner
+                                            div.item-input
+                                                input(
+                                                type='password'
+                                                name='password'
+                                                placeholder = '请再次输入密码'
+                                                )
+                            div.content-block
+                                a.button.button-big.button-fill(type='button') 提交
+                    div.toolbar.tabbar.tabbar-labels
+                        div.toolbar-inner
+                            a.tab-link(href='#')
+                                i.icon.home
+                                span.tabbar-label 主页
+                            a.tab-link(href='#')
+                                i.icon.heart
+                                span.tabbar-label 服务
+                            a.tab-link(href='#')
+                                i.icon.avatar
+                                span.tabbar-label 我
