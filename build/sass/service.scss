@@ -1,0 +1,34 @@
+.semicircle-right {
+  background: #e5c3b2;
+  height:auto;
+  border-radius:0 50px 50px 0;
+}
+.semicircle-right:before{
+  content:'';
+  display:inline-block;
+  width:100%;
+  padding-top:100%;
+}
+.semicircle-right:after{
+  content:'';
+  display:inline-block;
+  width:100%;
+  padding-top:100%;
+}
+.semicircle-left {
+  background: #e5c3b2;
+  height:auto;
+  border-radius:50px 0 0 50px;
+}
+.semicircle-left:before{
+  content:'';
+  display:inline-block;
+  width:100%;
+  padding-top:100%;
+}
+.semicircle-left:after{
+  content:'';
+  display:inline-block;
+  width:100%;
+  padding-top:100%;
+}

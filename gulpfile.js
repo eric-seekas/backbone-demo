@@ -33,12 +33,11 @@ const buildEs6 = 'build/es6/*.es6';
 const buildJsSrc = 'build/js';
 const buildJs = 'build/js/*.js';
 const buildSass = 'build/sass/*.scss';
-const buildCss = 'build/css/*.css';
-const buildCssSrc = 'build/css';
 const vendorCss = 'vendor/Framework7/dist/css/*.css';
 const distJs = 'dist/js/*.js';
 const distJsSrc = 'dist/js';
 const distCssSrc = 'dist/css';
+const distCss = 'dist/css/*.css';
 const dir = './';
 const dirHtml = './*.html';
 
@@ -79,8 +78,10 @@ gulp.task('sass-to-css', () => gulp.src(buildSass)
       browsers: ['last 99 versions'],
       cascade: false
     }))
-    .pipe(sourcemaps.write('../../dist/css/maps'))
-    .pipe(gulp.dest(buildCssSrc))
+    .pipe(cleanCSS({ compatibility: 'ie8' }))
+    .pipe(concat('style.css'))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(distCssSrc))
 );
 // purifycss
 gulp.task('purifycss', () => gulp.src(vendorCss)
@@ -95,15 +96,7 @@ gulp.task('replace', () => gulp.src(dirHtml)
 // browser-sync
 gulp.task('browser-sync', function browser() {
   browserSync.init({ server: { baseDir: './' } });
-  gulp.watch([buildHtml, buildJs, buildCss]).on('change', browserSync.reload);
-});
-// css minify
-gulp.task('minify-css', function minify() {
-  return gulp.src(buildCss)
-      .pipe(changed(buildCss))
-      .pipe(cleanCSS({ compatibility: 'ie8' }))
-      .pipe(concat('style.css'))
-      .pipe(gulp.dest(distCssSrc));
+  gulp.watch([buildHtml, buildJs, distCss]).on('change', browserSync.reload);
 });
 
 // watch
@@ -113,11 +106,9 @@ gulp.task('pug-watch', () => gulp.watch([buildPug, buildPugTpl], ['pug-to-html']
 gulp.task('es6-watch', () => gulp.watch(buildEs6, ['es6']));
 // sass
 gulp.task('sass-watch', () => gulp.watch(buildSass, ['sass-to-css']));
-// css
-gulp.task('css-watch', () => gulp.watch(buildCss, ['minify-css']));
 
 // develop
-gulp.task('watch', ['pug-watch', 'es6-watch', 'sass-watch', 'css-watch', 'browser-sync']);
+gulp.task('watch', ['pug-watch', 'es6-watch', 'sass-watch', 'browser-sync']);
 
 // release
 gulp.task('release', ['htmlmin', 'jscompress', 'replace']);
