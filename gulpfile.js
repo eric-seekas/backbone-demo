@@ -81,6 +81,9 @@ gulp.task('scss-lint', function scssLint() {
       clearMessages: true
     })
   ];
+  console.log('\r\n\r\n');
+  console.log('sass lint');
+  console.log('\r\n\r\n');
   return gulp.src(buildSass)
       .pipe(postcss(processors, { syntax: syntaxScss }));
 });

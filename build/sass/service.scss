@@ -3,13 +3,13 @@
   height:auto;
   border-radius:0 50px 50px 0;
 }
-.semicircle-right:before{
+.semicircle-right:before {
   content:'';
   display:inline-block;
   width:100%;
   padding-top:100%;
 }
-.semicircle-right:after{
+.semicircle-right:after {
   content:'';
   display:inline-block;
   width:100%;
@@ -20,13 +20,13 @@
   height:auto;
   border-radius:50px 0 0 50px;
 }
-.semicircle-left:before{
+.semicircle-left:before {
   content:'';
   display:inline-block;
   width:100%;
   padding-top:100%;
 }
-.semicircle-left:after{
+.semicircle-left:after {
   content:'';
   display:inline-block;
   width:100%;
