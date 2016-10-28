@@ -1,5 +1,5 @@
 .page{background-color:#fff}.pad_t--20{padding-top:20px}.pad_t--35{padding-top:35px}.pad_l--10{padding-left:10px}.mar_t--10{margin-top:10px}.mar_t--15{margin-top:15px}
 .icon{width:26px}.icon.home{background:url(../images/svg/house.svg) no-repeat}.icon.avatar{background:url(../images/svg/avatar.svg) no-repeat}.icon.heart{background:url(../images/svg/heart.svg) no-repeat}
 
-.semicircle-left:after,.semicircle-left:before,.semicircle-right:after,.semicircle-right:before{content:'';display:inline-block;width:100%;padding-top:100%}.semicircle-right{background:#e5c3b2;height:auto;-webkit-border-radius:0 50px 50px 0;-moz-border-radius:0 50px 50px 0;border-radius:0 50px 50px 0}.semicircle-left{background:#e5c3b2;height:auto;-webkit-border-radius:50px 0 0 50px;-moz-border-radius:50px 0 0 50px;border-radius:50px 0 0 50px}
+.semicircle-left:after,.semicircle-left:before,.semicircle-right:after,.semicircle-right:before{content:'';display:inline-block;width:100%;padding-top:100%}.semicircle-right{background:#e5c3b2;height:auto;-webkit-border-radius:0 999px 999px 0;-moz-border-radius:0 999px 999px 0;border-radius:0 999px 999px 0}.semicircle-left{background:#e5c3b2;height:auto;-webkit-border-radius:999px 0 0 999px;-moz-border-radius:999px 0 0 999px;border-radius:999px 0 0 999px}
 /*# sourceMappingURL=style.css.map */

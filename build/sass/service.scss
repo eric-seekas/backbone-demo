@@ -1,7 +1,7 @@
 .semicircle-right {
   background: #e5c3b2;
   height: auto;
-  border-radius: 0 50px 50px 0;
+  border-radius: 0 999px 999px 0;
 }
 
 .semicircle-right:before {
@@ -21,7 +21,7 @@
 .semicircle-left {
   background: #e5c3b2;
   height: auto;
-  border-radius: 50px 0 0 50px;
+  border-radius: 999px 0 0 999px;
 }
 
 .semicircle-left:before {

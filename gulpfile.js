@@ -16,6 +16,7 @@ const postcss = require('gulp-postcss');
 const reporter = require('postcss-reporter');
 const syntaxScss = require('postcss-scss');
 const stylelint = require('stylelint');
+// scss lint
 const sass = require('gulp-sass'); // scss to css
 const autoPrefixer = require('gulp-autoprefixer'); // autoprefixer
 const sourcemaps = require('gulp-sourcemaps'); // add sourcemaps
