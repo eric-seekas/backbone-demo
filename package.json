@@ -39,7 +39,8 @@
     "gulp-strip-debug": "^1.1.0",
     "gulp-uglify": "^2.0.0",
     "mocha": "^3.0.2",
-    "pump": "^1.0.1"
+    "pump": "^1.0.1",
+    "stylelint-config-standard": "^14.0.0"
   },
   "dependencies": {
     "gulp-clean-css": "^2.0.13",
