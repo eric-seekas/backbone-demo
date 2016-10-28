@@ -11,7 +11,11 @@ const purifycss = require('gulp-purifycss'); // Clean unnecessary CSS
 const changed = require('gulp-changed'); // changed file
 const cleanCSS = require('gulp-clean-css'); // minify css
 const concat = require('gulp-concat'); // concat file
-const postcss = require('gulp-postcss'); // postcss
+// scss lint
+const postcss = require('gulp-postcss');
+const reporter = require('postcss-reporter');
+const syntaxScss = require('postcss-scss');
+const stylelint = require('stylelint');
 const sass = require('gulp-sass'); // scss to css
 const autoPrefixer = require('gulp-autoprefixer'); // autoprefixer
 const sourcemaps = require('gulp-sourcemaps'); // add sourcemaps
@@ -69,8 +73,19 @@ gulp.task('htmlmin', () => gulp.src(buildHtml)
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest(dir))
 );
+// sass lint
+gulp.task('scss-lint', function scssLint() {
+  const processors = [
+    stylelint(),
+    reporter({
+      clearMessages: true
+    })
+  ];
+  return gulp.src(buildSass)
+      .pipe(postcss(processors, { syntax: syntaxScss }));
+});
 // scss to css
-gulp.task('sass-to-css', () => gulp.src(buildSass)
+gulp.task('sass-to-css', ['scss-lint'], () => gulp.src(buildSass)
     .pipe(changed(buildSass))
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', e => console.log(e.message)))
