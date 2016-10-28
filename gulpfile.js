@@ -82,7 +82,7 @@ gulp.task('scss-lint', function scssLint() {
     })
   ];
   console.log('\r\n\r\n');
-  console.log('sass lint');
+  console.log('sass lint message');
   console.log('\r\n\r\n');
   return gulp.src(buildSass)
       .pipe(postcss(processors, { syntax: syntaxScss }));
