@@ -3,17 +3,34 @@
 extends ./pug-tpl/layout
 
 block title
-    title 登录
+    title 首页
 block content
     div.views
         div.view
-            div.pages.navbar-fixed.navbar-through
+            div.pages
                 div.page
-                    div.navbar
-                        div.navbar-inner
-                            div.left
-                            div.center test
-                            div.right
                     div.page-content
-                    div.toolbar
+                        div.content-block.row
+                            a.col-auto.semicircle-left(href='#')
+                                span.pos_a.semicircle-text.modal-title.dis_inb.width--100 我要加油
+                            a.col-auto.semicircle-right(href='#')
+                                span.pos_a.semicircle-text.modal-title.dis_inb.width--100 我要加汽
+                        div.content-block.row
+                            div.swiper-container
+                                div.swiper-wrapper
+                                    div.swiper-slide Slide 1
+                                    div.swiper-slide Slide 2
+                                    div.swiper-slide Slide 4
+                    div.toolbar.tabbar.tabbar-labels
                         div.toolbar-inner
+                            a.tab-link(href='#')
+                                i.icon.home
+                                span.tabbar-label 主页
+                            a.tab-link(href='#')
+                                i.icon.heart
+                                span.tabbar-label 服务
+                            a.tab-link(href='#')
+                                i.icon.avatar
+                                span.tabbar-label 我
+block append jsSrc
+    script(src='./js/index.js')

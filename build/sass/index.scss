@@ -1,0 +1,29 @@
+.semicircle-left {
+  border-radius: 999px 0 0 999px;
+}
+
+.semicircle-right {
+  border-radius: 0 999px 999px 0;
+}
+
+.semicircle-left,
+.semicircle-right {
+  background: #e5c3b2;
+  height: auto;
+  position: relative;
+}
+
+.semicircle-right:before,
+.semicircle-right:after,
+.semicircle-left:before,
+.semicircle-left:after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+  padding-top: 100%;
+}
+
+.semicircle-text {
+  top: 46%;
+  left: 0;
+}

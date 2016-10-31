@@ -1,13 +1,13 @@
 //- index.pug
 
--var iosUrl = '../vendor/Framework7/css/framework7.ios.css?v=201610';
--var iosUrlColor = '../vendor/Framework7/css/framework7.ios.colors.css?v=201610';
--var materialUrl = '../vendor/Framework7/css/framework7.material.css?v=201610';
--var materialColorUrl = '../vendor/Framework7/css/framework7.material.colors.css?v=201610';
+-var iosUrl = '../vendor/Framework7/css/framework7.ios.css';
+-var iosUrlColor = '../vendor/Framework7/css/framework7.ios.colors.css';
+-var materialUrl = '../vendor/Framework7/css/framework7.material.css';
+-var materialColorUrl = '../vendor/Framework7/css/framework7.material.colors.css';
 -var styleUrl = '../dist/css/style.css';
--var backboneUrl = '../vendor/backbone/backbone.js?v=201610';
--var underscoreUrl = '../vendor/underscore/underscore.js?v=201610';
--var Framework7Url = '../vendor/Framework7/js/framework7.custom.js?v=201610';
+-var backboneUrl = '../vendor/backbone/backbone.js';
+-var underscoreUrl = '../vendor/underscore/underscore.js';
+-var Framework7Url = '../vendor/Framework7/js/framework7.custom.js';
 
 doctype html
 html
@@ -15,7 +15,7 @@ html
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        block link
+        block cssSrc
             link(rel='stylesheet', href=iosUrl)
             link(rel='stylesheet', href=iosUrlColor)
             link(rel='stylesheet', href=styleUrl)
@@ -25,6 +25,7 @@ html
     body
         block content
             p Default content
-        script(src=underscoreUrl)
-        script(src=backboneUrl)
-        script(src=Framework7Url)
+        block jsSrc
+            script(src=underscoreUrl)
+            script(src=backboneUrl)
+            script(src=Framework7Url)
