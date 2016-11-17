@@ -1,8 +1,8 @@
 'use strict';
 
-var ele = document.querySelector('.content-block');
+var ele = document.querySelector('.login-screen-title');
 function showLocation(position) {
-  ele.innerHTML = 'latitude:' + position.coords.latitude + '</br>longitude:' + position.coords.longitude;
+  ele.innerHTML = '\u7ECF\u5EA6:' + position.coords.longitude + '</br>\u7EAC\u5EA6:' + position.coords.latitude;
 }
 
 function showError(error) {

@@ -8,10 +8,19 @@ block content
     div.views
         div.view
             div.pages
-                div.page
+                div.page.navbar-fixed
+                    div.navbar
+                        div.navbar-inner
+                            div.left
+                            div.center 附近
+                            div.right
                     div.page-content
-                        div.login-screen-title.pad_t--35 附近
-                        div.content-block.row
+                        div.list-block.cards-list
+                            ul
+                                li.item-content
+                                    div.item-inner 123
+                                li.item-content
+                                    div.item-inner 123
 
 block append jsSrc
     script(src='./js/oil.js')

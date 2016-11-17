@@ -1,6 +1,6 @@
-const ele = document.querySelector('.content-block');
+const ele = document.querySelector('.login-screen-title');
 function showLocation(position) {
-  ele.innerHTML = `latitude:${position.coords.latitude}</br>longitude:${position.coords.longitude}`;
+  ele.innerHTML = `经度:${position.coords.longitude}</br>纬度:${position.coords.latitude}`;
 }
 
 function showError(error) {
